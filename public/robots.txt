@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap:
-https://domainanda.com/sitemap.xml
+https://www.tamatech.site/sitemap.xml
