@@ -1,0 +1,82 @@
+<section id="home" class="hero" aria-labelledby="hero-title">
+  <div class="container hero-shell">
+    <div class="hero-copy">
+      <p class="eyebrow">Pengembangan Full Stack Premium</p>
+
+      <h1 id="hero-title" class="hero-title">
+        Membangun sistem digital yang <span class="hero-title-accent">andi</span>.
+      </h1>
+
+      <p class="hero-subtitle">
+        Tesar Pratama adalah Digital Product Studio fokus pada Laravel, Vue.js, NestJS, platform rental PlayStation, dan otomasi bisnis berbasis cloud.
+      </p>
+
+      <p class="hero-description">
+        Dari sistem billing rental PlayStation hingga undangan pernikahan digital, kami menyajikan solusi yang andal dan terukur.
+      </p>
+
+      <div class="hero-actions" aria-label="Aksi utama">
+        <a href="/products.html" class="btn btn-primary">Lihat Produk</a>
+        <a href="/contact.html" class="btn btn-secondary">Hubungi Kami</a>
+      </div>
+
+      <div class="hero-metrics" aria-label="Highlights portofolio">
+        <div class="hero-metric">
+          <strong>Digital Product</strong>
+          <span>Arsitektur hingga deployment</span>
+        </div>
+        <div class="hero-metric">
+          <strong>Rental PlayStation</strong>
+          <span>Billing otomatis, laporan</span>
+        </div>
+        <div class="hero-metric">
+          <strong>Undangan Digital</strong>
+          <span>Tema premium, RSVP</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-label="Pratinjuk kode profil pengembang">
+      <div class="editor-card">
+        <div class="editor-topbar">
+          <div class="editor-dots" aria-hidden="true">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <span class="editor-filename">src/profile.ts</span>
+          <span class="editor-status">Live</span>
+        </div>
+
+        <div class="editor-body">
+          <pre tabindex="0"><code><span class="code-keyword">const</span> studio: ProductStudio = {
+  name: <span class="code-string">"Tesar Pratama"</span>,
+  focus: [
+    <span class="code-string">"Sistem Billing PlayStation"</span>,
+    <span class="code-string">"Undangan Pernikahan Digital"</span>,
+    <span class="code-string">"Laravel"</span>,
+    <span class="code-string">"Vue.js"</span>,
+    <span class="code-string">"NestJS"</span>,
+    <span class="code-string">"PostgreSQL"</span>
+  ],
+  build: <span class="code-keyword">async</span> (requirements) => {
+    <span class="code-keyword">const</span> architecture = <span class="code-function">designSystem</span>(requirements);
+    <span class="code-keyword">const</span> product = <span class="code-keyword">await</span> <span class="code-function">craftProduct</span>(architecture);
+
+    <span class="code-keyword">return</span> <span class="code-function">deploy</span>(product, {
+      quality: <span class="code-string">"premium"</span>,
+      scale: <span class="code-string">"business-ready"</span>
+    });
+  }
+};
+
+<span class="code-keyword">export default</span> studio;</code></pre>
+        </div>
+      </div>
+
+      <span class="floating-chip chip-laravel" aria-hidden="true">Laravel</span>
+      <span class="floating-chip chip-vue" aria-hidden="true">Vue.js</span>
+      <span class="floating-chip chip-api" aria-hidden="true">REST API</span>
+    </div>
+  </div>
+</section>
