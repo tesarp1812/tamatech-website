@@ -5,11 +5,13 @@ document.addEventListener("click", (event) => {
 
   if (!toggle || !menu || !target) return;
 
+  // Desktop dropdown toggle
   if (target.closest(".nav-dropdown-toggle")) {
     const btn = target.closest(".nav-dropdown-toggle");
     const dropdownMenu = btn.nextElementSibling;
     const isOpen = btn.getAttribute("aria-expanded") === "true";
 
+    // Close all other open desktop dropdowns
     document.querySelectorAll(".nav-dropdown-menu.is-open").forEach((m) => {
       m.classList.remove("is-open");
       m.previousElementSibling.setAttribute("aria-expanded", "false");
@@ -22,21 +24,26 @@ document.addEventListener("click", (event) => {
     return;
   }
 
+  // Mobile dropdown toggle
   if (target.closest(".mobile-dropdown-toggle")) {
     const btn = target.closest(".mobile-dropdown-toggle");
     const dropdownMenu = btn.nextElementSibling;
     const isOpen = btn.getAttribute("aria-expanded") === "true";
 
-    dropdownMenu.classList.toggle("hidden", !isOpen);
+    dropdownMenu.classList.toggle("hidden", isOpen);
     btn.setAttribute("aria-expanded", String(!isOpen));
     return;
   }
 
-  document.querySelectorAll(".nav-dropdown-menu.is-open").forEach((m) => {
-    m.classList.remove("is-open");
-    m.previousElementSibling.setAttribute("aria-expanded", "false");
-  });
+  // Close desktop dropdowns if clicking outside
+  if (!target.closest(".nav-dropdown")) {
+    document.querySelectorAll(".nav-dropdown-menu.is-open").forEach((m) => {
+      m.classList.remove("is-open");
+      m.previousElementSibling.setAttribute("aria-expanded", "false");
+    });
+  }
 
+  // Mobile menu toggle
   if (target.closest("#menu-toggle")) {
     const isOpen = !menu.classList.contains("hidden");
 
@@ -47,6 +54,7 @@ document.addEventListener("click", (event) => {
     return;
   }
 
+  // Close mobile menu if a link is clicked
   if (target.closest(".nav-link") && !menu.classList.contains("hidden")) {
     menu.classList.add("hidden");
     toggle.setAttribute("aria-expanded", "false");
