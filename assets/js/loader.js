@@ -182,19 +182,23 @@ function initActiveNavigation() {
   if (!navLinks.length) return;
 
   navLinks.forEach((link) => {
-    const href = link.getAttribute("href");
-    const linkPath = href.split("#")[0];
-    const linkHash = href.includes("#") ? "#" + href.split("#")[1] : "";
+    const href = link ? link.getAttribute('href') : null;
+    if (!href) {
+      return; // Skip if href is null or undefined
+    }
 
-    const isActive = (linkPath === currentPath || linkPath === "" || (currentPath === "/" && linkPath === "/index.html")) &&
-                     (linkHash === "" || linkHash === currentHash);
+    const linkPath = href.split('#')[0];
+    const linkHash = href.includes('#') ? '#' + href.split('#')[1] : '';
 
-    link.classList.toggle("is-active", isActive);
+    const isActive = (linkPath === currentPath || linkPath === '' || (currentPath === '/' && linkPath === '/index.html')) &&
+                     (linkHash === '' || linkHash === currentHash);
+
+    link.classList.toggle('is-active', isActive);
 
     if (isActive) {
-      link.setAttribute("aria-current", "page");
+      link.setAttribute('aria-current', 'page');
     } else {
-      link.removeAttribute("aria-current");
+      link.removeAttribute('aria-current');
     }
   });
 }
