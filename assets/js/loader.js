@@ -176,13 +176,18 @@ async function loadAllSections() {
 
 function initActiveNavigation() {
   const navLinks = Array.from(document.querySelectorAll(".nav-link"));
-  const currentPageType = getPageType();
+  const currentPath = window.location.pathname;
+  const currentHash = window.location.hash;
 
   if (!navLinks.length) return;
 
   navLinks.forEach((link) => {
-    const href = normalizeHref(link.getAttribute("href"));
-    const isActive = getPathPageType(href) === currentPageType;
+    const href = link.getAttribute("href");
+    const linkPath = href.split("#")[0];
+    const linkHash = href.includes("#") ? "#" + href.split("#")[1] : "";
+
+    const isActive = (linkPath === currentPath || linkPath === "" || (currentPath === "/" && linkPath === "/index.html")) &&
+                     (linkHash === "" || linkHash === currentHash);
 
     link.classList.toggle("is-active", isActive);
 
